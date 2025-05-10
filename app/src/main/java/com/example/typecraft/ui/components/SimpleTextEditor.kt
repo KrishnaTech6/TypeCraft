@@ -14,14 +14,25 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Undo
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.FormatBold
+import androidx.compose.material.icons.filled.FormatItalic
+import androidx.compose.material.icons.filled.FormatSize
+import androidx.compose.material.icons.filled.Redo
+import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.filled.Undo
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -172,7 +183,7 @@ fun SimpleTextEditor() {
 
                 Spacer(modifier = Modifier.width(8.dp))
 
-                Button(
+                TextButton(
                     onClick = {
                         if (historyIndex > 0) {
                             historyIndex--
@@ -181,12 +192,12 @@ fun SimpleTextEditor() {
                     },
                     modifier = Modifier.weight(1f)
                 ) {
-                    Text("Undo")
+                    Icon(imageVector =Icons.Default.Undo,contentDescription ="Undo")
                 }
 
                 Spacer(modifier = Modifier.width(8.dp))
 
-                Button(
+                TextButton(
                     onClick = {
                         if (historyIndex < history.size - 1) {
                             historyIndex++
@@ -195,7 +206,7 @@ fun SimpleTextEditor() {
                     },
                     modifier = Modifier.weight(1f)
                 ) {
-                    Text("Redo")
+                    Icon(imageVector =Icons.Default.Redo,contentDescription ="Redo")
                 }
             }
 
@@ -289,7 +300,8 @@ fun SimpleTextEditor() {
                             },
                             enabled = editingIndex != null,
                             isActive = editingIndex != null && texts.getOrNull(editingIndex!!)?.style?.isBold == true,
-                            label = "B"
+                            label = "Bold",
+                            icon = Icons.Default.FormatBold
                         )
 
                         // Italic button
@@ -309,7 +321,8 @@ fun SimpleTextEditor() {
                             },
                             enabled = editingIndex != null,
                             isActive = editingIndex != null && texts.getOrNull(editingIndex!!)?.style?.isItalic == true,
-                            label = "I"
+                            label = "Italic",
+                            icon = Icons.Default.FormatItalic
                         )
 
                         // Size decrease button
@@ -332,7 +345,8 @@ fun SimpleTextEditor() {
                             enabled = editingIndex?.let { index ->
                                 texts.getOrNull(index)?.style?.fontSize ?: 0 > 8
                             } ?: false,
-                            label = "A-"
+                            label = "reduce text size",
+                            icon = Icons.Default.Remove
                         )
 
                         // Size increase button
@@ -351,7 +365,8 @@ fun SimpleTextEditor() {
                                 }
                             },
                             enabled = editingIndex != null,
-                            label = "A+"
+                            label = "increase text size",
+                            icon = Icons.Default.Add
                         )
                     }
 
