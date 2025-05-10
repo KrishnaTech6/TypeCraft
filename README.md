@@ -5,10 +5,11 @@ functionality.
 
 ## Screenshots
 <p>
-  <img src="https://github.com/user-attachments/assets/c66491e7-5296-4227-8575-ae418852f6c5" width=200>
-  <img src="https://github.com/user-attachments/assets/16744e05-d925-4245-b5cd-4c98de9d81c6" width=200>
-  <img src="https://github.com/user-attachments/assets/66bb5efb-fb14-4878-8c9b-70cce4135d5c" width=200>
+  <img src="https://github.com/user-attachments/assets/45634147-2e17-41d3-8999-9035ebc39eff" width=200>
+  <img src="https://github.com/user-attachments/assets/c69c6105-1da0-42cd-ad73-aff39ddca6fe" width=200>
+  <img src="https://github.com/user-attachments/assets/61dc0c07-e27e-43d3-8213-d08d47005a13" width=200>
 </p>
+
 
 ## Features
 
