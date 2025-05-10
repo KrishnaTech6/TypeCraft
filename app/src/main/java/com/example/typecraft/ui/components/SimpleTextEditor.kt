@@ -108,22 +108,25 @@ fun SimpleTextEditor() {
                     onDoubleClick = {
                         showEditDialog = true
                         currentEditText = textInfo.text
+                        editingIndex = index
                     }
                 )
             }
-            if (showEditDialog) {
+            if (showEditDialog && editingIndex != null) {
                 EditDialog(
                     text = currentEditText,
                     onConfirm = { newText ->
-                        saveToHistory(
-                            texts.mapIndexed { i, text ->
-                                if (i == editingIndex!!) {
-                                    text.copy(text = newText)
-                                } else {
-                                    text
+                        editingIndex?.let { index ->
+                            saveToHistory(
+                                texts.mapIndexed { i, text ->
+                                    if (i == index) {
+                                        text.copy(text = newText)
+                                    } else {
+                                        text
+                                    }
                                 }
-                            }
-                        )
+                            )
+                        }
                         showEditDialog = false
                     },
                     onCancel = { showEditDialog = false }
